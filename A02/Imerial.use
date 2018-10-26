@@ -1,0 +1,139 @@
+model ImperialAcademy
+
+-- ----------------------------
+-- Classes
+-- ----------------------------
+class Date
+attributes
+    day: Integer
+    month: Integer
+    year: Integer
+
+end
+
+enum AcademicStanding{
+	GoodStanding, AcademicWarning, Suspended, Expelled
+}
+
+class Semester
+attributes
+	startDate: Date
+	endDate: Date
+end
+
+associationclass Registration between
+	Student[1..*] role students
+	School[1] role school
+attributes
+    registrationStatus: String
+    academicStanding: AcademicStanding
+    
+end
+
+abstract class User
+attributes
+    name: String
+    title: String
+    gender: String
+    dob:Date
+    email: String
+    phoneNumber:String
+    age: Integer derived:
+
+        let
+
+            current = dob.now
+
+        in
+
+        if (dob.month < current.month) or
+
+            (dob.month = current.month and
+
+                dob.day <= current.day)
+
+        then current.year - dob.year
+
+        else (current.year - dob.year) - 1
+
+        endif
+
+
+end
+
+class Parent< User end
+class Student< User end
+
+abstract class Staff< User end
+
+abstract class Trainer < Staff end
+class GuidanceCounsellor < Staff end
+class Principal < Staff end
+
+class Assistant < Trainer end
+
+
+class School
+end
+
+associationclass Enroll between
+	Student[1..*] role students
+	Trainer[1] role trainer
+end
+
+class Class
+end
+
+class Point
+attributes
+	points: Integer init: 100
+end
+
+-- ---------------------------------
+-- Associations
+-- ---------------------------------
+
+association Parents between
+	Parent[1..*] role parent
+	Student[1..*] role child
+end
+
+association Points between
+	Student[1..*] role student
+	Point[1] role points
+end
+
+association SchoolPrincipal between
+	Principal[1] role principal
+	School[1] role school
+end
+
+association Classes between
+	Class[1..*] role classes
+	School[1] role school
+end
+
+association Semesters between
+	School[1] role school
+	Semester[1..*] role semesters
+end
+
+association SemesterRegister between
+	Registration[1..*] role registration
+	Semester[1..*] role semester
+end
+
+association ClassOffered between
+	Enroll[1..*] role enrollment
+	Class[1..*]
+end
+
+
+association dNowD between
+
+    Date[0..*]
+
+    Date[1] role now
+
+end
+

@@ -2,7 +2,14 @@ model ImperialAcademy
 
 -- ----------------------------
 -- Classes
+-- ----------------------------------------
+-- Class with:
+--    attributes, initialisation of attributes,
+--    operation with or without their bodies,
+--    inheritance, constraints
+-- ----------------------------------------
 -- ----------------------------
+
 class Date
 attributes
     day: Integer
@@ -27,7 +34,7 @@ associationclass Registration between
 attributes
     registrationStatus: String
     academicStanding: AcademicStanding
-    
+
 end
 
 abstract class User
@@ -137,3 +144,21 @@ association dNowD between
 
 end
 
+-- ----------------------------------------
+-- Constraints
+-- class’ definition
+-- ----------------------------------------
+constraints
+
+-- Student must have one or more ability to be register.
+
+context Student
+     inv name:
+
+-- A trainer receives one Assistant if there are 3-5 students with 2-3 abilities.
+
+context Trainer
+
+-- A trainer receives two Assistant if there are 5 students with more than 3 abilities.
+
+context Trainer

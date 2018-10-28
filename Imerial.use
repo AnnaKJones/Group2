@@ -8,11 +8,61 @@ attributes
     day: Integer
     month: Integer
     year: Integer
+operations
+
+    Date (d:Integer, m:Integer, y:Integer)
+    begin
+ 	self.day:= d;
+ 	self.month:= m;
+ 	self.year:= y;
+    end
+    equals(d: Date): Boolean =
+        if (day=d.day and month=d.month and year=d.year )
+
+            	then true
+
+            	else false
+
+        endif
+
+
+    isAfter(d: Date): Boolean =
+
+        not isBefore(d) and not equals(d)
+
+
+    isBefore(d: Date): Boolean =
+
+        not equals(d) and
+
+        if year < d.year
+
+            then true
+
+            else
+
+                if year=d.year and month<d.month
+
+                then true
+
+                else
+
+                if year=d.year and month=d.month and day<d.day
+
+                    	then true
+
+                    	else false
+
+                	endif
+
+            	endif
+
+        endif
 
 end
 
 enum AcademicStanding{
-	GoodStanding, AcademicWarning, Suspension, Expulsion
+	GoodStanding, Warning, Suspension, Expulsion
 }
 
 enum ApplicationStatus{
@@ -29,11 +79,8 @@ associationclass Registration between
 	Student[1..*] role students
 	School[1] role school
 attributes
-    startDate: Date
-    endDate:Date
-    registrationStatus: String
-    academicStanding: AcademicStanding
-    
+    semester: Integer
+    registrationStatus: String    
 end
 
 abstract class User
@@ -63,8 +110,6 @@ attributes
         else (current.year - dob.year) - 1
 
         endif
-
-
 end
 
 class Parent< User end
@@ -72,31 +117,20 @@ class Student< User
 attributes
 	ability: String
 	points: Integer init: 100
+	academicStanding: AcademicStanding
 constraints
 --Constraint 22: Students may not obtain more than 100 points and no less than 0
 	inv maxPoints:
 		points<=100 and points>=0
---Contsraint: If a student has between 50 and 40 points, they have an Academic Warning
-	inv warning:
-		registration.academicStanding='Warning' implies (points<50 and points>=40) and
-		(points<50 and points>=40) implies registration.academicStanding='Warning'
---Contsraint: If a student has between 40 and 20 points, they have a Suspension
-	inv suspension:
-		registration.academicStanding='Suspension' implies (points<40 and points>=20) and
-		(points<40 and points>=20) implies registration.academicStanding='Suspension'
---Contsraint: If a student has less than 20 points, they have an expulsion
-	inv expulsion:
-		registration.academicStanding='Expulsion' implies (points<20) and
-		(points<20) implies registration.academicStanding='Expulsion'
 end
 
 abstract class Staff< User end
 
-abstract class Trainer < Staff end
+class Trainer < Staff end
 class GuidanceCounsellor < Staff end
 class Principal < Staff end
 
-class Assistant < Trainer end
+class Assistant < Staff end
 
 
 class School
@@ -111,7 +145,9 @@ end
 
 class Class
 attributes
+	name:String
 constraints
+--Constraint: Class size must be between 5 and 15
 	inv studentPerClass:
 		enrollments->size()>5 and enrollments->size<=15
 --	students>=5 and students<=15 

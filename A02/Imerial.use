@@ -69,7 +69,10 @@ attributes
 end
 
 class Parent< User end
-class Student< User end
+class Student< User
+  attributes
+      ability: Integer
+end
 
 abstract class Staff< User end
 
@@ -77,7 +80,7 @@ abstract class Trainer < Staff end
 class GuidanceCounsellor < Staff end
 class Principal < Staff end
 
-class Assistant < Trainer end
+class Assistant < Staff end
 
 
 class School
@@ -144,6 +147,10 @@ association dNowD between
 
 end
 
+ association TrainerAid between
+ Trainer[1] role trainer
+ Assistant[0..2] role assistant
+ end
 -- ----------------------------------------
 -- Constraints
 -- class’ definition
@@ -153,12 +160,24 @@ constraints
 -- Student must have one or more ability to be register.
 
 context Student
-     inv name:
+   inv reg:
+     ability >= 1 implies registration.registrationStatus='registered'
+
+-- A trainer receives no assistant if 90% of students in their class.
+context Trainer
+--     inv assign:
+--       students -> select (ability =1) -> size() implies assistant->size() = 0
 
 -- A trainer receives one Assistant if there are 3-5 students with 2-3 abilities.
 
 context Trainer
+    inv assign1:
+      students -> select (ability >=2 and ability <3 ) -> size() >=3 and
+      students -> select (ability >=2 and ability <3 ) -> size() <5 implies assistant->size() = 1
 
 -- A trainer receives two Assistant if there are 5 students with more than 3 abilities.
 
 context Trainer
+    inv assign2:
+      students -> select (ability >=3 and ability <5 ) -> size() >=5 and
+      students -> select (ability >=3 and ability <5 ) -> size() <15 implies assistant->size() = 2

@@ -9,7 +9,6 @@ model ImperialAcademy
 --    inheritance, constraints
 -- ----------------------------------------
 -- ----------------------------
-
 class Date
 attributes
     day: Integer
@@ -19,7 +18,11 @@ attributes
 end
 
 enum AcademicStanding{
-	GoodStanding, AcademicWarning, Suspended, Expelled
+	GoodStanding, AcademicWarning, Suspension, Expulsion
+}
+
+enum ApplicationStatus{
+	Accepted, Rejected, Pending, Waitlisted
 }
 
 class Semester
@@ -32,6 +35,8 @@ associationclass Registration between
 	Student[1..*] role students
 	School[1] role school
 attributes
+    startDate: Date
+    endDate:Date
     registrationStatus: String
     academicStanding: AcademicStanding
 
@@ -70,8 +75,26 @@ end
 
 class Parent< User end
 class Student< User
-  attributes
-      ability: Integer
+attributes
+	ability: String
+  numberofability: Integer
+	points: Integer init: 100
+constraints
+--Constraint 22: Students may not obtain more than 100 points and no less than 0
+	inv maxPoints:
+		points<=100 and points>=0
+--Contsraint: If a student has between 50 and 40 points, they have an Academic Warning
+	inv warning:
+		registration.academicStanding='Warning' implies (points<50 and points>=40) and
+		(points<50 and points>=40) implies registration.academicStanding='Warning'
+--Contsraint: If a student has between 40 and 20 points, they have a Suspension
+	inv suspension:
+		registration.academicStanding='Suspension' implies (points<40 and points>=20) and
+		(points<40 and points>=20) implies registration.academicStanding='Suspension'
+--Contsraint: If a student has less than 20 points, they have an expulsion
+	inv expulsion:
+		registration.academicStanding='Expulsion' implies (points<20) and
+		(points<20) implies registration.academicStanding='Expulsion'
 end
 
 abstract class Staff< User end
@@ -79,11 +102,12 @@ abstract class Staff< User end
 abstract class Trainer < Staff end
 class GuidanceCounsellor < Staff end
 class Principal < Staff end
-
 class Assistant < Staff end
 
 
 class School
+attributes
+	name: String
 end
 
 associationclass Enroll between
@@ -92,11 +116,63 @@ associationclass Enroll between
 end
 
 class Class
+attributes
+constraints
+	inv studentPerClass:
+		enrollments->size()>5 and enrollments->size<=15
+--	students>=5 and students<=15
 end
 
-class Point
+class AdmitApp
 attributes
-	points: Integer init: 100
+     date: Date
+     status: ApplicationStatus
+end
+
+class StudRecord
+attributes
+    name: String derived:
+	student.title.concat(' ').concat(student.name)
+    gender: String derived:
+	student.gender
+    dob: Date derived:
+	student.dob
+    age: Integer derived:
+	student.age
+    ability: String derived:
+	student.ability
+    comments: String
+end
+
+class Report
+attributes
+	students: Set(Student)
+	staff: Set(Staff)
+	comments:String
+end
+
+class StaffRecord
+attributes
+    name: String derived:
+	staffmember.title.concat(' ').concat(staffmember.name)
+    gender: String derived:
+	staffmember.gender
+    dob:Date derived:
+	staffmember.dob
+    email: String derived:
+	staffmember.email
+    phoneNumber:String derived:
+	staffmember.phoneNumber
+    age: Integer derived:
+	staffmember.age
+    pay: Real
+    comments: String
+end
+
+class Period
+attributes
+    startDate: Date
+    endDate: Date
 end
 
 -- ---------------------------------
@@ -108,10 +184,6 @@ association Parents between
 	Student[1..*] role child
 end
 
-association Points between
-	Student[1..*] role student
-	Point[1] role points
-end
 
 association SchoolPrincipal between
 	Principal[1] role principal
@@ -134,8 +206,8 @@ association SemesterRegister between
 end
 
 association ClassOffered between
-	Enroll[1..*] role enrollment
-	Class[1..*]
+	Enroll[1..*] role enrollments
+	Class[1] role class
 end
 
 
@@ -147,10 +219,52 @@ association dNowD between
 
 end
 
- association TrainerAid between
- Trainer[1] role trainer
- Assistant[0..2] role assistant
- end
+
+association SchoolReport between
+	Principal[1] role principal
+	Report[1..*] role reports
+end
+
+association ReportPeriod between
+	Report[*] role reports
+	Period[1] role period
+end
+
+association AdmissionPeriod between
+	AdmitApp[*] role requests
+	Period[0..1] role period
+end
+
+association RegistrationApps between
+	AdmitApp[*] role application
+	Registration[*] role registrations
+end
+
+association StudentRecords between
+	StudRecord[*] role records
+	Staff[*] role staff
+end
+
+association StudentRecord between
+	StudRecord[1] role record
+	Student[1] role student
+end
+
+association StaffRecords between
+	Staff[1] role staffmember
+	StaffRecord[1] role record
+end
+
+association Application between
+	Student[1] role student
+	AdmitApp[1..*] role applications
+end
+
+association TrainerAid between
+Trainer[1] role trainer
+Assistant[0..2] role assistant
+end
+
 -- ----------------------------------------
 -- Constraints
 -- class’ definition
@@ -161,23 +275,18 @@ constraints
 
 context Student
    inv reg:
-     ability >= 1 implies registration.registrationStatus='registered'
-
--- A trainer receives no assistant if 90% of students in their class.
-context Trainer
---     inv assign:
---       students -> select (ability =1) -> size() implies assistant->size() = 0
+     numberofability >= 1 implies registration.registrationStatus='registered'
 
 -- A trainer receives one Assistant if there are 3-5 students with 2-3 abilities.
 
 context Trainer
     inv assign1:
-      students -> select (ability >=2 and ability <3 ) -> size() >=3 and
-      students -> select (ability >=2 and ability <3 ) -> size() <5 implies assistant->size() = 1
+      students -> select (numberofability >=2 and numberofability <3 ) -> size() >=3 and
+      students -> select (numberofability >=2 and numberofability <3 ) -> size() <5 implies assistant->size() = 1
 
 -- A trainer receives two Assistant if there are 5 students with more than 3 abilities.
 
 context Trainer
     inv assign2:
-      students -> select (ability >=3 and ability <5 ) -> size() >=5 and
-      students -> select (ability >=3 and ability <5 ) -> size() <15 implies assistant->size() = 2
+      students -> select (numberofability >=3 and numberofability <5 ) -> size() >=5 and
+      students -> select (numberofability>=3 and numberofability <5 ) -> size() <15 implies assistant->size() = 2

@@ -85,21 +85,21 @@ constraints
 		points<=100 and points>=0
 --Contsraint: If a student has between 50 and 40 points, they have an Academic Warning
 	inv warning:
-		registration.academicStanding='Warning' implies (points<50 and points>=40) and
-		(points<50 and points>=40) implies registration.academicStanding='Warning'
+		registration.academicStanding=#AcademicWarning implies (points<50 and points>=40) and
+		(points<50 and points>=40) implies registration.academicStanding=#AcademicWarning
 --Contsraint: If a student has between 40 and 20 points, they have a Suspension
 	inv suspension:
-		registration.academicStanding='Suspension' implies (points<40 and points>=20) and
-		(points<40 and points>=20) implies registration.academicStanding='Suspension'
+		registration.academicStanding=#Suspension implies (points<40 and points>=20) and
+		(points<40 and points>=20) implies registration.academicStanding=#Suspension
 --Contsraint: If a student has less than 20 points, they have an expulsion
 	inv expulsion:
-		registration.academicStanding='Expulsion' implies (points<20) and
-		(points<20) implies registration.academicStanding='Expulsion'
+		registration.academicStanding=#Expulsion implies (points<20) and
+		(points<20) implies registration.academicStanding=#Expulsion
 end
 
 abstract class Staff< User end
 
-abstract class Trainer < Staff end
+class Trainer < Staff end
 class GuidanceCounsellor < Staff end
 class Principal < Staff end
 class Assistant < Staff end
@@ -281,12 +281,12 @@ context Student
 
 context Trainer
     inv assign1:
-      students -> select (numberofability >=2 and numberofability <3 ) -> size() >=3 and
-      students -> select (numberofability >=2 and numberofability <3 ) -> size() <5 implies assistant->size() = 1
+      (students->select(numberofability >=2 and numberofability <=3 )->size() >=3 and
+      students->select(numberofability >=2 and numberofability <=3 )->size() <5 )implies assistant->size() = 1
 
 -- A trainer receives two Assistant if there are 5 students with more than 3 abilities.
 
 context Trainer
     inv assign2:
-      students -> select (numberofability >=3 and numberofability <5 ) -> size() >=5 and
-      students -> select (numberofability>=3 and numberofability <5 ) -> size() <15 implies assistant->size() = 2
+      (students->select(numberofability >3 and numberofability <=5 )->size() >=5 and
+      students->select(numberofability >3 and numberofability <=5 )->size() <15 )implies assistant->size() = 2

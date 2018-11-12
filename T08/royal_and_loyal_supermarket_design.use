@@ -1,0 +1,635 @@
+-- ----------------------------------------
+-- Name the model
+-- ----------------------------------------
+model RoyalAndLoyal
+
+-- ----------------------------------------
+-- Enumerations
+-- sort ascending by enum name
+-- ----------------------------------------
+enum FrequencyType{
+	Daily,
+	Weekly,
+	Monthly,
+	Quarterly,
+	SemiAnually,
+	Yearly }
+
+enum Status {
+	Active,
+	Discontinued,
+	Invalidated,
+	Suspended,
+	Withdrawn}
+
+-- ----------------------------------------
+-- Class as DataType
+-- ----------------------------------------
+
+/* ----------------------------------------
+-- Class
+--    sort ascending by class name
+-- --------------------------------------*/
+abstract class ClassWithStatus
+attributes
+	status: Status init: Status::Active
+operations
+	setStatus(s: Status)
+	begin
+		self.status := s
+	end
+	pre: status <> s
+	post: status = s
+end
+
+abstract class ClassWithName
+attributes
+	name: String init: ''
+operations
+	setName(n: String)
+	begin
+		self.name := n
+	end
+	pre: name <> n
+	post: name = n
+end
+
+class LoyaltyProgram < ClassWithStatus, ClassWithName
+operations
+	addServiceLevels(lls: OrderedSet(String)): OrderedSet(ServiceLevel)
+	begin
+		declare
+			sl: ServiceLevel,
+			ss: OrderedSet(ServiceLevel);
+
+		ss := OrderedSet{};
+		for s in lls do
+			sl := self.addServiceLevel(s);
+			ss := ss->including(sl);
+		end;
+		result := ss;
+	end
+	-- the ServiceLevels have been added in the same order as given!
+	post: result.name->asOrderedSet() = lls
+
+	addServiceLevel(n: String): ServiceLevel
+	begin
+		declare sl : ServiceLevel;
+		sl := new ServiceLevel();
+		sl.setName(n);
+		insert(self, sl) into LPServiceLevels;
+	result := sl;
+	end
+	pre: levels.name->excludes(n)
+	post: levels = levels@pre->including(result)
+
+	addPartner(n: String): ProgramPartner
+	begin
+		declare pp : ProgramPartner;
+		pp := new ProgramPartner();
+		pp.setName(n);
+		insert(self, pp) into ProgramPartners;
+		result := pp;
+	end
+	pre: partners.name->exists(m | n = m)=false
+	post: partners = partners@pre->including(result)
+
+	addCustomer(n:String): Customer
+	begin
+		declare cus: Customer;
+		cus:= new Customer();
+		insert (cus, self) into Card;
+		result := cus;
+	end
+	pre: customers.name->exists(m | n = m)=false
+	post: customers = customers@pre->including(result)
+
+	addService(s: Service)
+	begin
+		insert(self, s) into LPServices
+	end
+	pre: services->excludes(s)
+	post: services = services@pre->including(s)
+
+    deleteServiceLevels()
+    begin
+        for l in self.getServiceLevels() do
+            destroy(l);
+        end
+    end
+
+	getServiceLevel(n: String): ServiceLevel =
+		levels->select(sl | sl.name = n)->first()
+
+	getServiceLevels(): OrderedSet(ServiceLevel) =
+		levels
+
+	getPartners(): Set(ProgramPartner) =
+		partners
+
+	getServices(): Set(Service) =
+		services->asSet()
+
+	serviceNameUnique(n: String): Boolean =
+		services.name->excludes(n)
+
+	suspend()
+	begin
+		self.setStatus(#Suspended)
+	end
+
+	discontinue()
+	begin
+		self.setStatus(#Discontinued)
+	end
+
+	reactivate()
+	begin
+		self.setStatus(#Active)
+	end
+
+statemachines
+	psm LPStates
+	states
+		start: initial
+		active [status = #Active]
+		suspended [status = #Suspended]
+		discontinued : final [status = #Discontinued]
+		undefined[name = '']
+
+	transitions
+		start -> undefined {create}
+		undefined->active {setName()}
+
+        --causes a problem because it calls another transition operation
+	    -- active->active {addServiceLevels()}
+
+		active->active {addServiceLevel()}
+
+		active -> active {addPartner()}
+		active ->active {addService()}
+
+		active -> suspended {suspend()}
+		active -> discontinued {discontinue()}
+
+		suspended -> active {reactivate()}
+		suspended -> discontinued {discontinue()}
+
+	end  /* for state machines */
+
+end
+
+class ProgramPartner < ClassWithName
+operations
+	ProgramPartner(n: String)
+	begin
+		self.setName(n)
+	end
+
+	addBurnPointsForDollarsService(
+		lp:LoyaltyProgram, sl: String, n: String, pb: Integer, de: Real):
+	BurnPointsForDollars
+	begin
+		declare s : BurnPointsForDollars;
+		s := new BurnPointsForDollars();
+		s.BurnPointsForDollars(n, pb, de);
+		self.addServiceLinks(lp, s, lp.getServiceLevel(sl));
+		result := s;
+	end
+	pre : checkGeneralAddServicePre(lp, sl, n) = true
+	pre: pb >= 0 and de > 0 // self explanatory
+	post: checkGeneralAddServicePost(services, services@pre, result, sl) = true
+	post:  -- result.pointsBurned = pb and already checked in Service
+		result.dollarEquivalent = de
+
+	addFreeItemService(
+		lp:LoyaltyProgram, sl: String, n: String, v: Real, f: Integer,
+			fq: FrequencyType): FreeItem
+	begin
+		declare s : FreeItem;
+		s := new FreeItem();
+		s.FreeItem(n, v, f, fq);
+		self.addServiceLinks(lp, s, lp.getServiceLevel(sl));
+		result := s;
+	end
+	pre : checkGeneralAddServicePre(lp, sl, n) = true
+	pre: v > 0 and f > 0 and fq.isDefined // self explanatory
+	post: checkGeneralAddServicePost(services, services@pre, result, sl) = true
+	post: result.value = v and
+		result.frequency = f and
+			result.type = fq
+
+	addMinTotalService(lp:LoyaltyProgram, sl: String,
+		n: String, minTotal: Real, pe: Integer): PointsOnMinPurchace
+	begin
+		declare s : PointsOnMinPurchace;
+		s := new PointsOnMinPurchace();
+		s.PointsOnMinPurchace(n, pe, minTotal);
+		self.addServiceLinks(lp, s, lp.getServiceLevel(sl));
+		result := s;
+	end
+	pre : checkGeneralAddServicePre(lp, sl, n) = true
+	pre: minTotal > 0 and pe > 0  // self explanatory
+	post: checkGeneralAddServicePost(services, services@pre, result, sl) = true
+	post: result.minDolarValue = minTotal and
+		result.pointsEarned = pe
+
+	checkGeneralAddServicePre(
+		lp: LoyaltyProgram, sl: String, n: String): Boolean =
+		-- service level is offered in the lp
+		lp.getServiceLevels().name->includes(sl) and
+			-- name is not currently a service name
+			lp.serviceNameUnique(n) and
+				-- self is a partner for lp:
+				lp.getPartners()->includes(self)
+
+	checkGeneralAddServicePost(
+		pppre: Set(Service), pppost: Set(Service),
+			r: Service, sl: String): Boolean =
+		pppre = pppost->including(r)  -- services now contains the new service
+			post: r.level.name = sl   -- new service is linked to the sl
+
+	addServiceLinks(lp: LoyaltyProgram, s: Service, sl: ServiceLevel)
+	begin
+		insert(self, s) into PartnerServices;
+		insert(s, sl) into ServiceAtLevel;
+		lp.addService(s); -- notify lp of new service
+	end
+
+	withdrawService(s: Service)
+	begin
+		s.withdraw()
+	end
+
+	suspendService(s: Service)
+	begin
+		s.suspend()
+	end
+
+	reactivateService(s: Service)
+	begin
+		s.reactivate()
+	end
+end
+
+class RL
+operations
+	addLoyaltyProgram(n: String, lls: OrderedSet(String)): LoyaltyProgram
+	begin
+		declare
+			lp : LoyaltyProgram;
+		lp := new LoyaltyProgram();
+		lp.setName(n);
+		lp.addServiceLevels(lls);
+		insert (self, lp) into RLPrograms;
+		result := lp;
+	end
+	pre: lps.name->excludes(n)
+	pre: lls->forAll(s | s.isDefined() and s <> '')
+	pre: lls->size()>0
+	post: lps = lps@pre->including(result)
+
+    removeLoyaltyProgram(n: String)
+    begin
+        declare
+            lp : LoyaltyProgram;
+        lp := self.lps->select(
+            lp | lp.name = n)->asOrderedSet()->first();
+        -- tell loyalty program to delete it's levels
+        lp.deleteServiceLevels();
+        -- delete loyalty program
+        destroy(lp);
+    end
+    -- pre and post conditions can be named
+    pre lpExists: lps->exists(lp | lp.name = n)
+    pre hasNoCustomers: getLoyaltyProgram(n).customers->size=0 -- update to say they have no customers
+    pre hasNoPartners: getLoyaltyProgram(n).partners->size = 0
+    post lpIsremoved: getLoyaltyPrograms()->exists(
+            lp | lp.name =n) = false
+
+    getLoyaltyPrograms(): Set(LoyaltyProgram) =
+        lps
+
+    getLoyaltyProgram(n: String): LoyaltyProgram =
+        lps->select(
+            lp | lp.name = n)->asOrderedSet()->first()
+end
+
+abstract class Service < ClassWithStatus, ClassWithName
+attributes
+	pointsBurned: Integer init: 0
+	pointsEarned: Integer init: 0
+operations
+	Service(n: String, pe: Integer, pb: Integer)
+	begin
+		self.name := n;
+		self.pointsEarned := pe;
+		self.pointsBurned := pb;
+	end
+	pre: n.isDefined and pe >= 0 and pb >= 0
+	post: name = n and pointsEarned  = pe and pointsBurned = pb
+
+	updatePointsEarned(pe: Integer)
+		begin self.pointsEarned := pe end
+	pre: pe > 0
+	post: pointsEarned = pe
+
+	updatePointsBurned(pb: Integer)
+		begin self.pointsBurned := pb end
+	pre: pb > 0
+	post: pointsBurned = pb
+
+	withdraw()
+		begin
+            self.setStatus(#Withdrawn)
+        end
+
+	suspend()
+		begin
+            self.setStatus(#Suspended)
+        end
+	reactivate()
+		begin
+            self.setStatus(#Active)
+        end
+
+statemachines
+	psm ServiceStates
+	states
+		start: initial
+		active [status = #Active]
+		suspended [status = #Suspended]
+		undefined [name = '']
+
+		withdrawn : final [status = #Withdrawn]
+
+	transitions
+		start -> undefined {create}
+
+		undefined -> active {setName()}
+		undefined -> active {Service()}
+
+		active->active {updatePointsEarned()}
+		active->active {updatePointsBurned()}
+		active->active {Service()}
+		active -> suspended {suspend()}
+		active -> withdrawn {withdraw()}
+
+		suspended -> active {reactivate()}
+		suspended -> withdrawn {withdraw()}
+	end  --for state machines
+end
+
+abstract class Burning < Service end
+
+class BurnPointsForDollars < Burning
+attributes
+	dollarEquivalent: Real init: 1
+operations
+	BurnPointsForDollars(n: String, pb: Integer, de: Real)
+	begin
+		self.Service(n, 0, pb);
+		self.dollarEquivalent := de;
+	end
+	pre: n.isDefined and pb >= 0 and de > 0
+	post: dollarEquivalent = de
+end
+
+class FreeItem < Burning
+attributes
+	value: Real
+	frequency : Integer
+	type: FrequencyType
+operations
+	FreeItem (n: String, v: Real, f: Integer, t: FrequencyType)
+	begin
+		self.Service(n, 0, 0);
+		self.value := v;
+		self.frequency := f;
+		self.type := t;
+	end
+	pre: n.isDefined and v > 0 and f > 0 and t.isDefined
+	post: value = v and frequency = f and type = t
+end
+
+abstract class Earning < Service end
+class PointsOnMinPurchace < Earning
+attributes
+	minDolarValue: Real
+operations
+	PointsOnMinPurchace (n: String, pe: Integer, v: Real)
+	begin
+		self.Service(n, pe, 0);
+		self.minDolarValue := v;
+	end
+	pre: n.isDefined and pe >= 0 and v > 0
+	post: minDolarValue = v
+end
+
+class ServiceLevel < ClassWithName end
+
+class Customer < ClassWithName
+attributes
+	address: String init: ''
+	dob: Date
+	age: Integer derived:
+			let
+					current = dob.now
+			in
+			if (dob.month < current.month) or
+					(dob.month = current.month and
+							dob.day <= current.day)
+			then current.year - dob.year
+			else (current.year - dob.year) - 1
+			endif
+operations
+	Customer(n: String, ad: String, d: Date, a: Integer)
+	begin
+		self.setName(n);
+		self.address:=ad;
+		self.dob:=d;
+		self.age:=a;
+	end
+end
+
+class Date
+attributes
+    day: Integer
+    month: Integer
+    year: Integer
+operations
+    Date (d:Integer, m:Integer, y:Integer)
+    begin
+ 	self.day:= d;
+ 	self.month:= m;
+ 	self.year:= y;
+    end
+    equals(d: Date): Boolean =
+        if (day=d.day and month=d.month and year=d.year )
+            	then true
+            	else false
+        endif
+
+    isAfter(d: Date): Boolean =
+        not isBefore(d) and not equals(d)
+
+    isBefore(d: Date): Boolean =
+        not equals(d) and
+        if year < d.year
+            then true
+            else
+                if year=d.year and month<d.month
+                then true
+                else
+                if year=d.year and month=d.month and day<d.day
+                    	then true
+                    	else false
+                	endif
+            	endif
+        endif
+end
+
+class Account
+end
+
+class Transaction
+end
+/* ----------------------------------------
+-- Association classes,
+-- sort ascending by Association name
+-- -------------------------------------- */
+associationclass Card between
+	Customer[1..*] role customers
+	LoyaltyProgram[1..*] role programs
+attributes
+	valid: Boolean init: true
+	customerName: String derived:
+		customers.name
+	points: Integer init:0
+	level: String
+	cardNumber: Integer init= 0000
+end
+
+/* ----------------------------------------
+-- Associations,
+-- sort ascending by Association name
+-- -------------------------------------- */
+
+association AccountCard between
+	Card[1] role card
+	Account[0..1] role account
+end
+
+association AccountTransaction between
+ 	Account[0..*] role accounts
+	Transaction[0..*] role transactions
+end
+
+association ServiceTransaction between
+	Transaction[*] role transactions
+	Service[0..*] role services
+end
+
+association LPServices between
+	LoyaltyProgram[1] role lp
+	Service[*] role services
+end
+
+association LPServiceLevels between
+	LoyaltyProgram[1] role lp
+	ServiceLevel[1..*] role levels ordered
+end
+
+association PartnerServices between
+	ProgramPartner[1] role partner
+	Service[*] role services
+end
+
+association ProgramPartners between
+	LoyaltyProgram[1..*] role lps
+	ProgramPartner[*] role partners
+end
+
+association RLPrograms between
+	RL [1] role rl
+	LoyaltyProgram[*] role lps
+end
+
+association ServiceAtLevel between
+	Service[*] role services
+	ServiceLevel[1] role level
+end
+
+association dNowD between
+    Date[0..*]
+    Date[1] role now
+end
+/* ----------------------------------------
+-- Constraints
+-- sort ascending by context
+-- --------------------------------------*/
+constraints
+
+context Burning
+	inv NoPointsEarned:
+		pointsEarned = 0
+
+context Earning
+	inv NoPointsBurned:
+		pointsBurned = 0
+
+context FreeItem
+	inv NoPointsBurned:
+		pointsBurned = 0
+
+context LoyaltyProgram
+	inv serviceNameUnique:
+		services->isUnique(name)
+
+	inv ServicesMatch:
+		let
+			pp = partners.services->select(
+				s | levels->includes(s.level))->asSet(),
+			s = services,
+			sls = levels.services
+		in
+		s = pp and s = sls
+
+	inv IfActiveAtLeastOneActiveService:
+		status = #Active implies
+			services->exists(s | s.status = #Active)
+
+	inv excludedStatus:
+		let
+			ex = Set{#Invalidated, #Withdrawn}
+		in
+		ex->excludes(status)
+
+context ProgramPartner
+	inv ServiceNamesUnique:
+		true    -- no need to specify this because it will enforced by the
+				-- serviceNameUnique invariant in LoyaltyProgram
+
+context RL
+	inv LPNameUnique:
+		lps->isUnique(name)
+
+	inv PPNameUnique:
+		lps.partners->asSet()->isUnique(name)
+
+	inv OnlyOneInstantiationOfRL:
+		RL.allInstances->forAll(rl1,rl2 |rl1=rl2)
+
+context Service
+	inv pointsIsNaturalNumber:
+		pointsBurned >= 0 and pointsEarned >= 0
+
+	inv excludedStatus:
+		let
+			ex = Set{#Invalidated, #Discontinued}
+		in
+		ex->excludes(status)
+
+context Customer
+	inv ofAge:
+		age>=18

@@ -1,0 +1,49 @@
+reset
+
+!create d1: Date
+!d1.Date(20, 10, 2018)
+
+!insert (d1,d1) into dNowD
+
+!create d2: Date
+!d2.Date(24, 10, 2018)
+!insert (d2,d1) into dNowD
+
+!create rl: RL
+
+!lp1 := rl.addLoyaltyProgram('Silver and Gold', OrderedSet{'Silver', 'Gold'})
+
+
+!pp4 := lp1.addPartner('Supermarket')
+
+!se4 := pp4.addMinTotalService(lp1, 'Silver', 'FlatRateOnTotal', 15, 5)
+
+!se5 := pp4.addBurnPointsForDollarsService(lp1, 'Silver', 'BurnineOneToOne', 1, 1)
+
+!se5 := pp4.addFreeItemService(lp1, 'Gold', 'Freebies', 25, 2, #Monthly)
+
+
+!create c: Customer
+
+!c.name:='Renee Jackson'
+
+!c.address:= '42 Wallabee Way'
+
+!d2.Date(3, 12, 2010)
+
+!insert (d2,d1) into dNowD
+
+!c.dob:=d2
+
+
+!insert (c,lp1) into Card
+
+
+!se6 := pp4.addMinTotalService(lp1, 'Gold', 'MinSpent', 15, 10)
+!se4.suspend()
+!se4.reactive()
+!se4.withdraw()
+!se4.reactive()
+
+
+check

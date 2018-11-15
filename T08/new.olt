@@ -1,0 +1,1734 @@
+<?xml version="1.0" encoding="windows-1252"?><diagram_Layout version="13">
+    <diagramOptions>
+        <autolayout>false</autolayout>
+        <antialiasing>false</antialiasing>
+        <showassocnames>false</showassocnames>
+        <showattributes>true</showattributes>
+        <showmultiplicities>false</showmultiplicities>
+        <showoperations>false</showoperations>
+        <showrolenames>true</showrolenames>
+        <showgrid>false</showgrid>
+        <ShowStates>false</ShowStates>
+    </diagramOptions>
+    <node id="PointsOnMinPurchace2" sizeCalculated="true" type="Object">
+        <name>PointsOnMinPurchace2</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>1085.23946321898</x>
+            <y>143.7796088890426</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="PointsOnMinPurchace1" sizeCalculated="true" type="Object">
+        <name>PointsOnMinPurchace1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>745.4489070723037</x>
+            <y>193.9615335488911</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="c" sizeCalculated="true" type="Object">
+        <name>c</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>15.0832467075237</x>
+            <y>421.8121936742838</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="FreeItem1" sizeCalculated="true" type="Object">
+        <name>FreeItem1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>277.8098866608485</x>
+            <y>586.4695943838483</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="LoyaltyProgram1" sizeCalculated="true" type="Object">
+        <name>LoyaltyProgram1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>148.48034708022692</x>
+            <y>75.18291678247755</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="ServiceLevel2" sizeCalculated="true" type="Object">
+        <name>ServiceLevel2</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>693.151619551811</x>
+            <y>420.2111006422782</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="ServiceLevel1" sizeCalculated="true" type="Object">
+        <name>ServiceLevel1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>469.64190512478467</x>
+            <y>231.18227336315323</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="rl" sizeCalculated="true" type="Object">
+        <name>rl</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>441.75318959936925</x>
+            <y>13.987686990271612</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="ProgramPartner1" sizeCalculated="true" type="Object">
+        <name>ProgramPartner1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>875.2076124244295</x>
+            <y>688.2768307982017</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="BurnPointsForDollars1" sizeCalculated="true" type="Object">
+        <name>BurnPointsForDollars1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>266.1674320163777</x>
+            <y>351.6256422681872</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Card1" sizeCalculated="true" type="Object">
+        <name>Card1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
+            <userOffsetX>0.0</userOffsetX>
+            <userOffsetY>0.0</userOffsetY>
+            <basisDeltaX>ABSOLUTE</basisDeltaX>
+            <deltaX>0.0</deltaX>
+            <maxDeltaX>1.7976931348623157E308</maxDeltaX>
+            <basisDeltaY>ABSOLUTE</basisDeltaY>
+            <deltaY>-54.0</deltaY>
+            <maxDeltaY>1.7976931348623157E308</maxDeltaY>
+            <corner>NORTH</corner>
+            <relativeNodeId>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::-1</relativeNodeId>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <edge type="BinaryEdge">
+        <source>ProgramPartner1</source>
+        <target>BurnPointsForDollars1</target>
+        <name>PartnerServices</name>
+        <properties>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>partner</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>PartnerServices</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::WayPoint::0</related0>
+                        <related1>[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[PartnerServices : (partner:ProgramPartner1, services:BurnPointsForDollars1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>LoyaltyProgram1</source>
+        <target>PointsOnMinPurchace2</target>
+        <name>LPServices</name>
+        <properties>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>lp</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>23.0</userOffsetX>
+                    <userOffsetY>-6.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>LPServices</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::WayPoint::0</related0>
+                        <related1>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace2)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>ProgramPartner1</source>
+        <target>PointsOnMinPurchace1</target>
+        <name>PartnerServices</name>
+        <properties>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>partner</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>PartnerServices</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::WayPoint::0</related0>
+                        <related1>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>LoyaltyProgram1</source>
+        <target>FreeItem1</target>
+        <name>LPServices</name>
+        <properties>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>lp</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>7.0</userOffsetX>
+                    <userOffsetY>13.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>LPServices</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::WayPoint::0</related0>
+                        <related1>[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[LPServices : (lp:LoyaltyProgram1, services:FreeItem1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>PointsOnMinPurchace1</source>
+        <target>ServiceLevel1</target>
+        <name>ServiceAtLevel</name>
+        <properties>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>level</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>ServiceAtLevel</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::WayPoint::0</related0>
+                        <related1>[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[ServiceAtLevel : (level:ServiceLevel1, services:PointsOnMinPurchace1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>rl</source>
+        <target>LoyaltyProgram1</target>
+        <name>RLPrograms</name>
+        <properties>
+            <edgeproperty id="[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>lps</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>rl</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>RLPrograms</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::WayPoint::0</related0>
+                        <related1>[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[RLPrograms : (lps:LoyaltyProgram1, rl:rl)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>LoyaltyProgram1</source>
+        <target>PointsOnMinPurchace1</target>
+        <name>LPServices</name>
+        <properties>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>lp</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>18.0</userOffsetX>
+                    <userOffsetY>-1.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>LPServices</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::WayPoint::0</related0>
+                        <related1>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="true" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
+                    <userOffsetX>197.0</userOffsetX>
+                    <userOffsetY>55.04089595324015</userOffsetY>
+                    <basisDeltaX>ABSOLUTE</basisDeltaX>
+                    <deltaX>0.0</deltaX>
+                    <maxDeltaX>1.7976931348623157E308</maxDeltaX>
+                    <basisDeltaY>ABSOLUTE</basisDeltaY>
+                    <deltaY>0.0</deltaY>
+                    <maxDeltaY>1.7976931348623157E308</maxDeltaY>
+                    <corner>NORTH_WEST</corner>
+                    <relativeNodeId>LoyaltyProgram1</relativeNodeId>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[LPServices : (lp:LoyaltyProgram1, services:PointsOnMinPurchace1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>LoyaltyProgram1</source>
+        <target>ServiceLevel2</target>
+        <name>LPServiceLevels</name>
+        <properties>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>levels {ordered}</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>61.0</userOffsetX>
+                    <userOffsetY>6.0</userOffsetY>
+                    <attached>[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1..*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>lp</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>42.0</userOffsetX>
+                    <userOffsetY>8.0</userOffsetY>
+                    <attached>[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>LPServiceLevels</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::WayPoint::0</related0>
+                        <related1>[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[LPServiceLevels : (levels:ServiceLevel2, lp:LoyaltyProgram1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>PointsOnMinPurchace2</source>
+        <target>ServiceLevel2</target>
+        <name>ServiceAtLevel</name>
+        <properties>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>level</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>ServiceAtLevel</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::WayPoint::0</related0>
+                        <related1>[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[ServiceAtLevel : (level:ServiceLevel2, services:PointsOnMinPurchace2)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>FreeItem1</source>
+        <target>ServiceLevel2</target>
+        <name>ServiceAtLevel</name>
+        <properties>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>level</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>ServiceAtLevel</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::WayPoint::0</related0>
+                        <related1>[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[ServiceAtLevel : (level:ServiceLevel2, services:FreeItem1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>ProgramPartner1</source>
+        <target>PointsOnMinPurchace2</target>
+        <name>PartnerServices</name>
+        <properties>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>partner</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>PartnerServices</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::WayPoint::0</related0>
+                        <related1>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[PartnerServices : (partner:ProgramPartner1, services:PointsOnMinPurchace2)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>LoyaltyProgram1</source>
+        <target>ServiceLevel1</target>
+        <name>LPServiceLevels</name>
+        <properties>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>levels {ordered}</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1..*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>lp</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>40.0</userOffsetX>
+                    <userOffsetY>7.0</userOffsetY>
+                    <attached>[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>LPServiceLevels</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::WayPoint::0</related0>
+                        <related1>[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[LPServiceLevels : (levels:ServiceLevel1, lp:LoyaltyProgram1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>LoyaltyProgram1</source>
+        <target>ProgramPartner1</target>
+        <name>ProgramPartners</name>
+        <properties>
+            <edgeproperty id="[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>partners</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>lps</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>49.0</userOffsetX>
+                    <userOffsetY>22.0</userOffsetY>
+                    <attached>[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1..*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>ProgramPartners</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::WayPoint::0</related0>
+                        <related1>[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[ProgramPartners : (lps:LoyaltyProgram1, partners:ProgramPartner1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>BurnPointsForDollars1</source>
+        <target>ServiceLevel1</target>
+        <name>ServiceAtLevel</name>
+        <properties>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>level</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>ServiceAtLevel</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::WayPoint::0</related0>
+                        <related1>[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[ServiceAtLevel : (level:ServiceLevel1, services:BurnPointsForDollars1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>ProgramPartner1</source>
+        <target>FreeItem1</target>
+        <name>PartnerServices</name>
+        <properties>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>partner</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>PartnerServices</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::WayPoint::0</related0>
+                        <related1>[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[PartnerServices : (partner:ProgramPartner1, services:FreeItem1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>LoyaltyProgram1</source>
+        <target>BurnPointsForDollars1</target>
+        <name>LPServices</name>
+        <properties>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>services</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>lp</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>28.0</userOffsetX>
+                    <userOffsetY>7.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>LPServices</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::WayPoint::0</related0>
+                        <related1>[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[LPServices : (lp:LoyaltyProgram1, services:BurnPointsForDollars1)]</linkValue>
+    </edge>
+    <edge type="NodeEdge">
+        <source>c</source>
+        <target>LoyaltyProgram1</target>
+        <name>Card</name>
+        <properties>
+            <edgeproperty id="Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::target::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1..*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::target::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>programs</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::source::multiplicity" sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+                <name>1..*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::source::rolename" sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+                <name>customers</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::AssociationName" sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+                <name>Card</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::0</related0>
+                        <related1>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty id="Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::0" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <connectionNode>
+            <edgeproperty id="Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::-1" sizeCalculated="true" type="WayPoint" userDefined="false" visible="false">
+                <name>-1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>0.0</offsetY>
+                    <related length="2">
+                        <related0>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::0</related0>
+                        <related1>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <id>-1</id>
+                <specialid>7</specialid>
+                <hidden>true</hidden>
+            </edgeproperty>
+        </connectionNode>
+        <associationClass>
+            <node id="Card1" sizeCalculated="true" type="Object">
+                <name>Card1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <basisDeltaX>ABSOLUTE</basisDeltaX>
+                    <deltaX>0.0</deltaX>
+                    <maxDeltaX>1.7976931348623157E308</maxDeltaX>
+                    <basisDeltaY>ABSOLUTE</basisDeltaY>
+                    <deltaY>-54.0</deltaY>
+                    <maxDeltaY>1.7976931348623157E308</maxDeltaY>
+                    <corner>NORTH</corner>
+                    <relativeNodeId>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]::WayPoint::-1</relativeNodeId>
+                </strategy>
+                <hidden>false</hidden>
+            </node>
+        </associationClass>
+        <linkValue>Card1 [Card : (programs:LoyaltyProgram1, customers:c)]</linkValue>
+    </edge>
+</diagram_Layout>

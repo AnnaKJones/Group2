@@ -442,6 +442,7 @@ attributes
 			then current.year - dob.year
 			else (current.year - dob.year) - 1
 			endif
+--	status: Status init: Status::Active
 operations
 	Customer(n: String, ad: String, d: Date, a: Integer)
 	begin
@@ -450,6 +451,42 @@ operations
 		self.dob:=d;
 		self.age:=a;
 	end
+--	pre:
+--	post:
+--withdraw()
+--	begin
+--					self.setStatus(#Withdrawn)
+--			end
+
+--suspend()
+--	begin
+--					self.setStatus(#Suspended)
+--			end
+--reactivate()
+--	begin
+--					self.setStatus(#Active)
+--			end
+--statemachines
+--   pmd Cust
+--	 start: initial
+--	 active [status = #Active]
+--	 suspended [status = #Suspended]
+--	 undefined [name = '']
+
+--	 withdrawn : final [status = #Withdrawn]
+
+--   transitions
+--	 start -> undefined {create}
+
+--	 undefined -> active {setName()}
+--	 undefined -> active {Service()}
+
+--	 active -> suspended {suspend()}
+--	 active -> withdrawn {withdraw()}
+
+--	 suspended -> active {reactivate()}
+--	 suspended -> withdrawn {withdraw()}
+-- end  --for state machines
 end
 
 class Date
@@ -508,6 +545,23 @@ attributes
 	points: Integer init:0
 	level: String
 	cardNumber: Integer init= 0000
+--operations
+ -- setName()
+ -- valid()
+ -- invalid()
+statemachines
+--	psm CARD
+--	  states
+--		 start: initial
+--		  valid [status=#active]
+--			invalid[status=#suspended]
+--			undefined [name='']
+--	transactions
+--		  start -> undefined {create}
+--			undefined -> valid {setName()}
+--			valid -> invalid { invalid()}
+--			invalid -> valid{ valid()}
+--  end
 end
 
 /* ----------------------------------------

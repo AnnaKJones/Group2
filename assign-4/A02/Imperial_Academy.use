@@ -1,0 +1,237 @@
+model ImperialAcademy
+
+-- ----------------------------
+-- Classes
+-- ----------------------------------------
+-- Class with:
+--    attributes, initialisation of attributes,
+--    operation with or without their bodies,
+--    inheritance, constraints
+-- ----------------------------------------
+-- ----------------------------
+class Date
+attributes
+    day: Integer
+    month: Integer
+    year: Integer
+
+end
+
+enum AcademicStanding{
+	GoodStanding, AcademicWarning, Suspension, Expulsion
+}
+
+enum ApplicationStatus{
+	Accepted, Rejected, Pending, Waitlisted
+}
+
+abstract class User
+attributes
+    name: String
+    title: String
+    gender: String
+    dob:Date
+    email: String
+    phoneNumber:String
+    age: Integer derived:
+        let
+            current = dob.now
+        in
+        if (dob.month < current.month) or
+            (dob.month = current.month and
+                dob.day <= current.day)
+        then current.year - dob.year
+        else (current.year - dob.year) - 1
+        endif
+end
+
+class Parent< User end
+class Student< User
+attributes
+	ability: String
+  numberofability: Integer
+	points: Integer init: 100
+  registrationStatus: String init: ' '
+  academicStanding: AcademicStanding
+constraints
+--Constraint 22: Students may not obtain more than 100 points and no less than 0
+	inv maxPoints:
+		points<=100 and points>=0
+
+--Contsraint: If a student has between 50 and 40 points, they have an Academic Warning
+	inv warning:
+		academicStanding=#AcademicWarning implies (points<50 and points>=40) and
+		(points<50 and points>=40) implies academicStanding=#AcademicWarning
+
+--Contsraint: If a student has between 40 and 20 points, they have a Suspension
+	inv suspension:
+		academicStanding=#Suspension implies (points<40 and points>=20) and
+		(points<40 and points>=20) implies academicStanding=#Suspension
+
+--Contsraint: If a student has less than 20 points, they have an expulsion
+	inv expulsion:
+		academicStanding=#Expulsion implies (points<20) and
+		(points<20) implies academicStanding=#Expulsion
+end
+
+abstract class Staff< User end
+
+class Trainer < Staff end
+class GuidanceCounsellor < Staff end
+class Principal < Staff
+operations
+  approveStudent()
+ end
+class Assistant < Staff end
+
+
+class School
+attributes
+	name: String
+end
+
+class Class
+attributes
+--constraints
+--	inv studentPerClass:
+--	 students>=5 and students<=15
+end
+
+class AdmitApp
+attributes
+     date: Date
+     status: ApplicationStatus
+end
+
+abstract class Record
+attributes
+    name: String derived:
+	user.title.concat(' ').concat(user.name)
+    gender: String derived:
+	user.gender
+    dob: Date derived:
+	user.dob
+    age: Integer derived:
+	user.age
+    comments: String
+end
+class StudRecord < Record end
+class StaffRecord < Record end
+
+class Report
+attributes
+	students: Set(Student)
+	staff: Set(Staff)
+	comments:String
+end
+
+
+class Period
+attributes
+    startDate: Date
+    endDate: Date
+end
+
+-- ---------------------------------
+-- Associations
+-- ---------------------------------
+
+association Parents between
+	Parent[1..*] role parent
+	Student[1..*] role child
+end
+
+association UserRecord between
+  Record[*] role records
+  User[1] role user
+end
+
+association SchoolPrincipal between
+	Principal[1] role principal
+	School[1] role school
+end
+
+association Classes between
+	Class[1..*] role classes
+	School[1] role school
+end
+
+association Semesters between
+	School[1] role school
+	Period[1..*] role semesters
+end
+
+association dNowD between
+    Date[0..*]
+    Date[1] role now
+end
+
+association SchoolReport between
+	Principal[1] role principal
+	Report[1..*] role reports
+end
+
+association ReportPeriod between
+	Report[*] role reports
+	Period[1] role period
+end
+
+association AdmissionPeriod between
+	AdmitApp[*] role requests
+	Period[0..1] role period
+end
+
+
+association Application between
+	Student[1] role student
+	AdmitApp[1..*] role applications
+end
+
+association TrainerAid between
+Trainer[1] role trainer
+Assistant[0..2] role assistant
+end
+
+association StudClass between
+  Student[*] role students
+  Class[*] role classes
+end
+
+association TrainClass between
+  Trainer[*] role trainer
+  Class[1] role classes
+end
+
+association StudTrainer between
+  Student[*] role students
+  Trainer[*] role trainers
+end
+-- ----------------------------------------
+-- Constraints
+-- class’ definition
+-- ----------------------------------------
+constraints
+
+-- Student must have one or more ability to be register.
+
+context Student
+   inv reg:
+     numberofability >= 1 implies registrationStatus='registered'
+
+-- A trainer receives one Assistant if there are 3-5 students with 2-3 abilities.
+
+context Trainer
+    inv assign1:
+      (students->select(numberofability >=2 and numberofability <=3 )->size() >=3 and
+      students->select(numberofability >=2 and numberofability <=3 )->size() <5 )implies assistant->size() = 1
+
+-- A trainer receives two Assistant if there are 5 students with more than 3 abilities.
+
+context Trainer
+    inv assign2:
+      (students->select(numberofability >3 and numberofability <=5 )->size() >=5 and
+      students->select(numberofability >3 and numberofability <=5 )->size() <15 )implies assistant->size() = 2
+
+----------------------------------------
+--StateMachines
+----------------------------------------

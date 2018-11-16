@@ -9,6 +9,10 @@ model ImperialAcademy
 --    inheritance, constraints
 -- ----------------------------------------
 -- ----------------------------
+
+---------------------------------------
+--Date
+--------------------------------------------------------------------------------
 class Date
 attributes
     day: Integer
@@ -16,7 +20,11 @@ attributes
     year: Integer
 
 end
+--------------------------------------------------------------------------------
 
+---------------------------------------------------
+--enum
+--------------------------------------------------------------------------------
 enum AcademicStanding{
 	GoodStanding, AcademicWarning, Suspension, Expulsion
 }
@@ -24,13 +32,21 @@ enum AcademicStanding{
 enum ApplicationStatus{
 	Accepted, Rejected, Pending, Waitlisted
 }
+--------------------------------------------------------------------------------
 
+---------------------------------------------------------------
+--semester
+-------------------------------------------------------------------------------
 class Semester
 attributes
 	startDate: Date
 	endDate: Date
 end
+--------------------------------------------------------------------------------
 
+---------------------------------------------
+--Registration
+--------------------------------------------------------------------------------
 associationclass Registration between
 	Student[1..*] role students
 	School[1] role school
@@ -40,8 +56,60 @@ attributes
     registrationStatus: String
     academicStanding: AcademicStanding
 
-end
+operations
+    setStatus(a: AcademicStanding)
+      begin
+      self.academicStanding := a
+    end
+    pre: self.academicStanding <> a
+    post: self.academicStanding= a
 
+    goodStanding()
+      begin
+        self.setStatus(#GoodStanding)
+    end
+
+    academicWarning()
+      begin
+        self.setStatus(#AcademicWarning)
+    end
+
+    suspension()
+      begin
+        self.setStatus(#Suspension)
+    end
+
+    expulsion()
+      begin
+        self.setStatus(#Expulsion)
+    end
+
+statemachines
+        psm studentStatus
+          states
+              start: initial
+              goodStanding [   academicStanding= #GoodStanding]
+              academicWarning [   academicStanding= #AcademicWarning]
+              suspension [   academicStanding= #Suspension]
+              expulsion : final [   academicStanding= #Expulsion]
+              --undefined[ name= '']
+          transitions
+                start-> goodStanding{goodStanding()}
+                goodStanding-> academicWarning{ academicWarning()}
+                goodStanding-> suspension{suspension()}
+                goodStanding-> expulsion{expulsion()}
+                academicWarning-> goodStanding{goodStanding()}
+                academicWarning-> suspension{suspension()}
+                academicWarning-> expulsion{expulsion()}
+                suspension-> academicWarning{academicWarning()}
+                suspension-> expulsion{expulsion()}
+          end /* for the state machine */
+end
+--------------------------------------------------------------------------------
+
+-----------------------------------------------------
+---User
+--------------------------------------------------------------------------------
 abstract class User
 attributes
     name: String
@@ -69,41 +137,53 @@ attributes
         else (current.year - dob.year) - 1
 
         endif
-
-
 end
+--------------------------------------------------------------------------------
 
 class Parent< User end
+
+-----------------------------------------------------
+--student
+--------------------------------------------------------------------------------
 class Student< User
 attributes
-	ability: String
-  numberofability: Integer
-	points: Integer init: 100
+    	ability: String
+      numberofability: Integer
+    	points: Integer init: 100
 constraints
---Constraint 22: Students may not obtain more than 100 points and no less than 0
-	inv maxPoints:
-		points<=100 and points>=0
---Contsraint: If a student has between 50 and 40 points, they have an Academic Warning
-	inv warning:
-		registration.academicStanding=#AcademicWarning implies (points<50 and points>=40) and
-		(points<50 and points>=40) implies registration.academicStanding=#AcademicWarning
---Contsraint: If a student has between 40 and 20 points, they have a Suspension
-	inv suspension:
-		registration.academicStanding=#Suspension implies (points<40 and points>=20) and
-		(points<40 and points>=20) implies registration.academicStanding=#Suspension
---Contsraint: If a student has less than 20 points, they have an expulsion
-	inv expulsion:
-		registration.academicStanding=#Expulsion implies (points<20) and
-		(points<20) implies registration.academicStanding=#Expulsion
+    --Constraint 22: Students may not obtain more than 100 points and no less than 0
+    	inv maxPoints:
+    		points<=100 and points>=0
+    --Contsraint: If a student has between 50 and 40 points, they have an Academic Warning
+    	inv warning:
+    		registration.academicStanding=#AcademicWarning implies (points<50 and points>=40) and
+    		(points<50 and points>=40) implies registration.academicStanding=#AcademicWarning
+    --Contsraint: If a student has between 40 and 20 points, they have a Suspension
+    	inv suspension:
+    		registration.academicStanding=#Suspension implies (points<40 and points>=20) and
+    		(points<40 and points>=20) implies registration.academicStanding=#Suspension
+    --Contsraint: If a student has less than 20 points, they have an expulsion
+    	inv expulsion:
+    		registration.academicStanding=#Expulsion implies (points<20) and
+    		(points<20) implies registration.academicStanding=#Expulsion
+
+ --operations
+ ---      name
+ ---- begin
+ ---
+ ---end
+ --pre:
+ --post:
+
 end
+--------------------------------------------------------------------------------
+
 
 abstract class Staff< User end
-
 class Trainer < Staff end
 class GuidanceCounsellor < Staff end
 class Principal < Staff end
 class Assistant < Staff end
-
 
 class School
 attributes
@@ -111,68 +191,104 @@ attributes
 end
 
 associationclass Enroll between
-	Student[1..*] role students
-	Trainer[1] role trainer
+    	Student[1..*] role students
+    	Trainer[1] role trainer
 end
 
 class Class
-attributes
-constraints
-	inv studentPerClass:
-		enrollments->size()>5 and enrollments->size<=15
---	students>=5 and students<=15
+      attributes
+      constraints
+      	inv studentPerClass:
+      		enrollments->size()>5 and enrollments->size<=15
+      --	students>=5 and students<=15
 end
 
 class AdmitApp
-attributes
-     date: Date
-     status: ApplicationStatus
+      attributes
+           date: Date
+           status: ApplicationStatus
+      --operations
+           ---    setStatus(ApplicationStatus: status)
+           ---- begin
+           ---    self.status := ApplicationStatus
+           ---end
+           --pre: status <> ApplicationStatus
+           --post: status = ApplicationStatus
+
+           ---     accepted()
+           ---- begin
+           ---  self.setStatus(#Accepted)
+           ---end
+
+           ---      rejected()
+           ---- begin
+           ---   self.setStatus(#Rejected)
+           ---end
+
+           ---     pending()
+           ---- begin
+           --- set.Status(#Pending)
+           ---end
+
+           ---     waitlisted()
+           ---- begin
+           ---    set.status(#Waitlisted)
+           ---end
+        --statemachine
+            --admitStatus
+               -- states
+               -- transitions
+               --operations
+
+
+
+
 end
 
 class StudRecord
-attributes
-    name: String derived:
-	student.title.concat(' ').concat(student.name)
-    gender: String derived:
-	student.gender
-    dob: Date derived:
-	student.dob
-    age: Integer derived:
-	student.age
-    ability: String derived:
-	student.ability
-    comments: String
+    attributes
+        name: String derived:
+    	student.title.concat(' ').concat(student.name)
+        gender: String derived:
+    	student.gender
+        dob: Date derived:
+    	student.dob
+        age: Integer derived:
+    	student.age
+        ability: String derived:
+    	student.ability
+        comments: String
 end
 
 class Report
-attributes
-	students: Set(Student)
-	staff: Set(Staff)
-	comments:String
+      attributes
+      	students: Set(Student)
+      	staff: Set(Staff)
+      	comments:String
 end
 
 class StaffRecord
-attributes
-    name: String derived:
-	staffmember.title.concat(' ').concat(staffmember.name)
-    gender: String derived:
-	staffmember.gender
-    dob:Date derived:
-	staffmember.dob
-    email: String derived:
-	staffmember.email
-    phoneNumber:String derived:
-	staffmember.phoneNumber
-    age: Integer derived:
-	staffmember.age
-    pay: Real
-    comments: String
+      attributes
+          name: String derived:
+      	staffmember.title.concat(' ').concat(staffmember.name)
+          gender: String derived:
+      	staffmember.gender
+          dob:Date derived:
+      	staffmember.dob
+          email: String derived:
+      	staffmember.email
+          phoneNumber:String derived:
+      	staffmember.phoneNumber
+          age: Integer derived:
+      	staffmember.age
+          pay: Real
+          comments: String
 end
 
 class Period
-attributes
-    startDate: Date
-    endDate: Date
+    attributes
+        startDate: Date
+        endDate: Date
 end
 
 -- ---------------------------------

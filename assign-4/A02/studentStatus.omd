@@ -31,15 +31,19 @@ reset
 !create p1:Parent
 !p1.setName('Kim Black')
 
-!create c1:Student ---(goodStanding) --::studentStatus
-!c1.setStatus(#GoodStanding)
-!c1.setName('Mark Stone')
-!c1.setNumberofability(2)
+--!create c1:Student
+--!c1.setName('Mark Stone')
+--!c1.setNumberofability(2)
+-- statemachines
+--c1.academicWarning()
+--c1.suspend()
+--c1.academicWarning()
+--c1.goodStanding()
 
-
-!insert(p1,c1) into Parents
-!insert(c1,a1) into Application
+--!insert(p1,c1) into Parents
+--!insert(c1,a1) into Application
 !create sr1:StudRecord
+
 
 
 
@@ -47,7 +51,7 @@ reset
 --!insert(sr1,c1) into StudentRecord
 --!insert(sr1,t1) into StudentRecords
 
-!insert(s1,pe1) into Semesters
-!inert(rec1,pe1) into ReportPeriod
+--insert(s1,pe1) into Semesters
+--insert(rec1,pe1) into ReportPeriod
 
-!check
+--!check

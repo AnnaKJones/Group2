@@ -50,6 +50,21 @@ attributes
         then current.year - dob.year
         else (current.year - dob.year) - 1
         endif
+operations
+       setName(n:String)
+        begin
+        self.name := n
+        end
+
+      --  setTitle(n:String)
+      --   begin
+      --   self.title := n
+      --   end
+
+      --   setGender(n:String)
+      --    begin
+      --    self.gender := n
+      --    end
 end
 --------------------------------------------------------------------------------
 
@@ -67,6 +82,30 @@ attributes
           academicStanding: AcademicStanding
 
 operations
+          setAbility( a: String)
+          begin
+              self.name := a
+          end
+
+          setNumberofability( i:Integer)
+          begin
+             self.numberofability := i
+          end
+
+          setPoint(i :Integer)
+          begin
+              self.points := i
+          end
+          --per:
+          -- post:
+
+          setRegistertionstatus(s: String)
+          begin
+              self.registrationStatus :=s
+          end
+          --per:
+          --post:
+
           setStatus(a: AcademicStanding)
           begin
                 self.academicStanding := a
